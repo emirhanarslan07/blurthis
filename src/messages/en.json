@@ -1,0 +1,34 @@
+{
+    "Index": {
+        "title": "Blurthis instantly blurs sensitive data in screenshots.",
+        "description": "Zero setup. Zero tracking. Just drag, select, and download. Perfect for developers and builders sharing on Twitter.",
+        "upload": "Upload Screenshot",
+        "uploadSub": "Drag and drop or click to upload",
+        "privacyNote": "Privacy first: Processing happens in your browser",
+        "v1": "V1.0 LIVE",
+        "features": {
+            "privacy": {
+                "title": "Privacy First",
+                "desc": "No data ever leaves your computer. Everything stays in your browser."
+            },
+            "zero": {
+                "title": "Zero Dependencies",
+                "desc": "Native Canvas API for maximum speed and zero tracking scripts."
+            },
+            "workflow": {
+                "title": "Pure Workflow",
+                "desc": "Optimized for speed. Drag, select a region, download as PNG."
+            }
+        },
+        "editor": {
+            "title": "Blur Editor",
+            "sub": "Select regions to blur sensitive content",
+            "undo": "Undo",
+            "clear": "Clear",
+            "new": "New Image",
+            "download": "Download PNG",
+            "processing": "Processing locally in-browser"
+        },
+        "footer": "built with precision · blurthis.realseye.com"
+    }
+}

@@ -151,14 +151,14 @@ export const BlurCanvas: React.FC<BlurCanvasProps> = ({
     };
 
     return (
-        <div className="relative inline-block max-w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
+        <div className="relative inline-flex overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
             <canvas
                 ref={canvasRef}
-                className="block max-w-full h-auto touch-none"
+                className="block max-w-full max-h-[65vh] w-auto h-auto touch-none"
             />
             <canvas
                 ref={overlayRef}
-                className="absolute inset-0 block max-w-full h-auto cursor-crosshair touch-none"
+                className="absolute inset-0 w-full h-full cursor-crosshair touch-none"
                 onMouseDown={handleStart}
                 onMouseMove={handleMove}
                 onMouseUp={handleEnd}

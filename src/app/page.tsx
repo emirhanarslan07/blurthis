@@ -4,12 +4,10 @@ import { useEffect, useState } from 'react';
 import { UploadZone } from '@/components/UploadZone';
 import { BlurCanvas } from '@/components/BlurCanvas';
 import { Toolbar } from '@/components/Toolbar';
-import { Ghost, ShieldCheck, Sparkles } from 'lucide-react';
+import { Ghost, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 
 export default function Home() {
-  const t = useTranslations('Index');
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [historyLength, setHistoryLength] = useState(0);
   const [undoTrigger, setUndoTrigger] = useState(0);
@@ -65,25 +63,37 @@ export default function Home() {
           >
             <header className="space-y-6 text-center flex flex-col items-center">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter gradient-text whitespace-pre-line text-center">
-                {t('title')}
+                Blurthis instantly blurs sensitive data in screenshots.
               </h1>
               <p className="text-xl md:text-2xl text-muted max-w-3xl mx-auto leading-relaxed text-center opacity-90">
-                {t('description')}
+                Zero setup. Zero tracking. Just drag, select, and download. Perfect for developers and builders sharing on Twitter.
               </p>
             </header>
 
             <UploadZone
               onImageUpload={handleImageUpload}
-              label={t('upload')}
-              subLabel={t('uploadSub')}
-              privacyText={t('privacyNote')}
+              label="Upload Screenshot"
+              subLabel="Drag and drop or click to upload"
+              privacyText="Privacy first: Processing happens in your browser"
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-12">
               {[
-                { icon: Ghost, title: t('features.privacy.title'), desc: t('features.privacy.desc') },
-                { icon: ShieldCheck, title: t('features.zero.title'), desc: t('features.zero.desc') },
-                { icon: UploadIcon, title: t('features.workflow.title'), desc: t('features.workflow.desc') }
+                { 
+                  icon: Ghost, 
+                  title: "Privacy First", 
+                  desc: "No data ever leaves your computer. Everything stays in your browser." 
+                },
+                { 
+                  icon: ShieldCheck, 
+                  title: "Zero Dependencies", 
+                  desc: "Native Canvas API for maximum speed and zero tracking scripts." 
+                },
+                { 
+                  icon: UploadIcon, 
+                  title: "Pure Workflow", 
+                  desc: "Optimized for speed. Drag, select a region, download as PNG." 
+                }
               ].map((feature, i) => (
                 <div key={i} className="flex flex-col items-center gap-4 p-8 rounded-[2rem] border border-border bg-surface/30 backdrop-blur-sm hover:bg-surface/50 transition-colors duration-300">
                   <div className="p-3 rounded-2xl bg-accent/10 border border-accent/20">
@@ -96,7 +106,7 @@ export default function Home() {
             </div>
 
             <footer className="mt-12 text-sm text-muted/50 font-mono">
-              {t('footer')}
+              built with precision · blurthis.realseye.com
             </footer>
           </motion.div>
         ) : (
@@ -112,8 +122,8 @@ export default function Home() {
                   <Ghost className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold tracking-tight">{t('editor.title')}</h2>
-                  <p className="text-xs text-muted">{t('editor.sub')}</p>
+                  <h2 className="text-xl font-bold tracking-tight">Blur Editor</h2>
+                  <p className="text-xs text-muted">Select regions to blur sensitive content</p>
                 </div>
               </div>
 
@@ -124,10 +134,10 @@ export default function Home() {
                 canUndo={historyLength > 1}
                 onReset={() => setImage(null)}
                 labels={{
-                  undo: t('editor.undo'),
-                  clear: t('editor.clear'),
-                  new: t('editor.new'),
-                  download: t('editor.download')
+                  undo: "Undo",
+                  clear: "Clear",
+                  new: "New Image",
+                  download: "Download PNG"
                 }}
               />
             </div>
@@ -144,7 +154,7 @@ export default function Home() {
 
             <div className="flex items-center gap-2 text-[10px] text-muted uppercase tracking-[0.2em] font-medium opacity-50">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              {t('editor.processing')}
+              Processing locally in-browser
             </div>
           </motion.div>
         )}

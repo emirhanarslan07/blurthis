@@ -1,9 +1,10 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,19 +18,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "blurthis.realseye.com - Blur sensitive data in screenshots instantly",
-  description: "A premium tool for developers to quickly blur sensitive information in screenshots before sharing.",
+  description:
+    "A premium tool for developers to quickly blur sensitive information in screenshots before sharing.",
 };
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: string } | any;
 }) {
-  const { locale } = await Promise.resolve(params);
+  const { locale } = await params;
 
-  if (locale !== 'en') {
+  if (locale !== "en") {
     notFound();
   }
 
